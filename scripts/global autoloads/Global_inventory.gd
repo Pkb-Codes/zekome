@@ -14,8 +14,17 @@ func _ready():
 	# this will fix the inventory size to inventory_size
 	inventory.resize(inventory_size)
 
-func add_item():
-	inventory_updated.emit()
+func add_item(item):
+	for i in range(inventory_size):
+		if inventory[i] != null and inventory[i]["name"] == item["name"] and inventory[i]["type"] == item["type"]:
+			inventory[i]["quantity"] += item["qunatity"]
+			inventory_updated.emit()
+			return true
+		elif inventory[i] == null:
+			inventory[i] = item
+			inventory_updated.emit()
+			return true
+		return false
 
 func remove_item():
 	inventory_updated.emit()
