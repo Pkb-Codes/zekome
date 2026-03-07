@@ -17,37 +17,34 @@ size = Vector2(10, 10)
 [node name="DevBhavishya" type="Node2D" unique_id=1889251947]
 
 [node name="wolf" type="CharacterBody2D" parent="." unique_id=49764838]
+collision_layer = 2
 script = ExtResource("1_mlt7u")
 
 [node name="Sprite2D" type="Sprite2D" parent="wolf" unique_id=28858709]
 texture = SubResource("PlaceholderTexture2D_yab6o")
 
 [node name="debug" type="Label" parent="wolf" unique_id=1298027836]
-offset_left = -32.0
-offset_top = -30.0
-offset_right = 39.0
-offset_bottom = -7.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 15.0
+offset_bottom = -17.0
+text = "IDLE"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wolf" unique_id=771316341]
 shape = SubResource("CapsuleShape2D_mlt7u")
 
 [node name="Area2D" type="Area2D" parent="wolf" unique_id=1822363687]
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wolf/Area2D" unique_id=1109869516]
 scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_v25rj")
 
-[node name="FiniteStateMachine" type="Node2D" parent="wolf" unique_id=54317903]
-
-[node name="Idle" type="Node2D" parent="wolf/FiniteStateMachine" unique_id=124530492]
-position = Vector2(0, 2)
-
-[node name="Patrol" type="Node2D" parent="wolf/FiniteStateMachine" unique_id=920286169]
-
-[node name="Attack" type="Node2D" parent="wolf/FiniteStateMachine" unique_id=700047136]
-
 [node name="Player" type="CharacterBody2D" parent="." unique_id=895898006 groups=["player"]]
-position = Vector2(140, 4)
+position = Vector2(88.975, 4)
+collision_layer = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1769820827]
 texture = SubResource("PlaceholderTexture2D_v25rj")

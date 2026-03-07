@@ -6,6 +6,7 @@ var state = State.IDLE
 
 @export var speed = 120
 @export var patrol_radius = 200
+@onready var debug: Label = $debug
 
 var player: Node2D = null
 var player_detected = false
@@ -30,7 +31,7 @@ func _physics_process(delta):
 
 		State.ATTACK:
 			attack_state()
-
+	debug.text = State.keys()[state]
 	move_and_slide()
 
 
@@ -58,7 +59,7 @@ func patrol_state():
 	if player_detected:
 		state = State.ATTACK
 
-
+#COLLISION SETUP : 1-World 2-Player 3-Enemy
 func attack_state():
 
 	if player == null:
@@ -89,4 +90,4 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == player:
-		player_detected = false
+				player_detected = false

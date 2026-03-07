@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://t7j8dqu3c5o5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wbvn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_x7ijt"]
+
+[node name="Wall" type="RigidBody2D" unique_id=1047535534]
+gravity_scale = 0.0
+lock_rotation = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1191204215]
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_0wbvn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1287911291]
+scale = Vector2(20, 200)
+texture = SubResource("PlaceholderTexture2D_x7ijt")
