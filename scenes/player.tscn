@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://begq6fhebah0v"]
+
+[ext_resource type="Script" uid="uid://c6nhxolcgjnw5" path="res://scripts/player.gd" id="1_tuyoq"]
+[ext_resource type="Script" uid="uid://gt4om3eu65lk" path="res://scripts/state_machine.gd" id="2_fjrip"]
+[ext_resource type="Script" uid="uid://bxyj3euj6ney2" path="res://scripts/idle_state.gd" id="3_smehm"]
+[ext_resource type="Script" uid="uid://3hkx1ojjbo4y" path="res://scripts/move_state.gd" id="4_ur7pv"]
+[ext_resource type="Script" uid="uid://c02q0vckyxnwh" path="res://scripts/dash_state.gd" id="5_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://bfwe834v0dt4n" path="res://sprites/icon.svg" id="6_d2wvv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0gboa"]
+radius = 133.15028
+
+[node name="player" type="CharacterBody2D" unique_id=56953062]
+script = ExtResource("1_tuyoq")
+
+[node name="State_machine" type="Node" parent="." unique_id=134278161]
+script = ExtResource("2_fjrip")
+
+[node name="IdleState" type="Node" parent="State_machine" unique_id=1143820293]
+script = ExtResource("3_smehm")
+
+[node name="MoveState" type="Node" parent="State_machine" unique_id=809042958]
+script = ExtResource("4_ur7pv")
+
+[node name="DashState" type="Node" parent="State_machine" unique_id=1854664548]
+script = ExtResource("5_y4r1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1486660533]
+position = Vector2(458, 304)
+shape = SubResource("CircleShape2D_0gboa")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=8501458]
+position = Vector2(470, 300)
+texture = ExtResource("6_d2wvv")
