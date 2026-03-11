@@ -4,18 +4,17 @@ extends "res://scripts/state.gd"
 @export var dash_duration: float = 0.2
 
 var dash_direction: Vector2 = Vector2.ZERO
-var dash_timer: float = 0.0
+var dash_timer: float = 10.0
 
 func enter():
 	print("Entered Dash State")
+	player.start_dash_cooldown()
 
 	dash_direction = get_input_direction()
 
 	if dash_direction == Vector2.ZERO:
 		dash_direction = player.velocity.normalized()
 
-	if dash_direction == Vector2.ZERO:
-		dash_direction = Vector2.RIGHT
 
 	dash_timer = dash_duration
 

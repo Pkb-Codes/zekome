@@ -11,7 +11,7 @@ func physics_update(delta):
 		state_machine.change_state("MoveState")
 		return
 
-	if Input.is_action_just_pressed("Dash"):
+	if Input.is_action_just_pressed("Dash") and player.can_dash and direction !=Vector2.ZERO:
 		state_machine.change_state("DashState")
 
 func exit():
