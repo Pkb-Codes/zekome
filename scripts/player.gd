@@ -10,7 +10,7 @@ func take_damage(amount:int):
 	health-=amount
 	health=max(health,0)
 func die():
-	print("player died")
+	pass
 
 
 

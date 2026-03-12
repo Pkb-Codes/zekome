@@ -1,9 +1,9 @@
-extends "res://scripts/state.gd"
+extends "res://scripts/player_states/player_state.gd"
 
 @export var speed: float = 200.0
 
 func enter():
-	print("Entered Move State")
+	pass
 
 func physics_update(delta):
 	var direction = get_input_direction()
@@ -23,7 +23,7 @@ func physics_update(delta):
 	player.move_and_slide()
 
 func exit():
-	print("Exiting Move State")
+	pass
 
 func get_input_direction():
 	var dir = Vector2.ZERO

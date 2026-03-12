@@ -1,8 +1,8 @@
-extends "res://scripts/state.gd"
+extends "res://scripts/player_states/player_state.gd"
 
 func enter():
 	player.velocity = Vector2.ZERO
-	print("Entered Idle State")
+	
 
 func physics_update(delta):
 	var direction = get_input_direction()
@@ -15,7 +15,7 @@ func physics_update(delta):
 		state_machine.change_state("DashState")
 
 func exit():
-	print("Exiting Idle State")
+	pass
 
 func get_input_direction():
 	var dir = Vector2.ZERO

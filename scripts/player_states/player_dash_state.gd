@@ -1,4 +1,4 @@
-extends "res://scripts/state.gd"
+extends "res://scripts/player_states/player_state.gd"
 
 @export var dash_speed: float = 600.0
 @export var dash_duration: float = 0.2
@@ -7,7 +7,7 @@ var dash_direction: Vector2 = Vector2.ZERO
 var dash_timer: float = 10.0
 
 func enter():
-	print("Entered Dash State")
+	
 	player.start_dash_cooldown()
 
 	dash_direction = get_input_direction()
@@ -32,7 +32,7 @@ func physics_update(delta):
 
 func exit():
 	player.velocity = Vector2.ZERO
-	print("Exiting Dash State")
+	
 
 func get_input_direction():
 	var dir = Vector2.ZERO
