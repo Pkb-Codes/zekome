@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://02rhj3m2vpg0"]
+
+[ext_resource type="Script" uid="uid://bgrhhd01rf7gr" path="res://scripts/save_slots_manager.gd" id="1_x7pjv"]
+
+[node name="save_slots_scene" type="CanvasLayer" unique_id=1349195753]
+script = ExtResource("1_x7pjv")
+
+[node name="slot_buttons" type="HBoxContainer" parent="." unique_id=2006335555]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -50.0
+offset_right = 500.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="slot_1" type="Button" parent="slot_buttons" unique_id=1550823951]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="slot_2" type="Button" parent="slot_buttons" unique_id=1555975318]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="slot_3" type="Button" parent="slot_buttons" unique_id=2108265363]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="slot_4" type="Button" parent="slot_buttons" unique_id=516025021]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="back_button" type="Button" parent="." unique_id=1804795040]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -198.0
+offset_right = 50.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back To Main Menu"
+
+[connection signal="pressed" from="slot_buttons/slot_1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="slot_buttons/slot_2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="slot_buttons/slot_3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="slot_buttons/slot_4" to="." method="_on_slot_4_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_on_back_button_pressed"]
