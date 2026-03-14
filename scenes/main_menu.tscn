@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bt28m4vunbmkb" path="res://scripts/main_menu.gd" id="1_l6cm7"]
 [ext_resource type="PackedScene" uid="uid://02rhj3m2vpg0" path="res://scenes/save_slots_scene.tscn" id="2_bqqt6"]
-[ext_resource type="PackedScene" uid="uid://c5nbj6bfjnpxr" path="res://scenes/options_scene.tscn" id="3_wu84c"]
+[ext_resource type="PackedScene" uid="uid://c5nbj6bfjnpxr" path="res://scenes/options_panel.tscn" id="3_wu84c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vue75"]
 font_size = 50
@@ -11,7 +11,7 @@ font_color = Color(0, 0.5962386, 0.7155542, 1)
 [node name="main_menu" type="CanvasLayer" unique_id=572030904]
 script = ExtResource("1_l6cm7")
 save_slots_scene = ExtResource("2_bqqt6")
-settings_scene = ExtResource("3_wu84c")
+options_scene = ExtResource("3_wu84c")
 
 [node name="buttons" type="Control" parent="." unique_id=1145813900]
 layout_mode = 3

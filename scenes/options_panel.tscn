@@ -1,0 +1,229 @@
+[gd_scene format=3 uid="uid://c5nbj6bfjnpxr"]
+
+[ext_resource type="Script" uid="uid://cmd2oxaslhca2" path="res://scripts/options_menu.gd" id="1_npixg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h4533"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_npixg"]
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_ofg22"]
+font_size = 50
+
+[node name="options_panel" type="Panel" unique_id=877362488]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_npixg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=793102844]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19506672, 0.19506672, 0.19506669, 1)
+
+[node name="button_container" type="VBoxContainer" parent="." unique_id=518626224]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="key_binds_button" type="Button" parent="button_container" unique_id=1586412163]
+layout_mode = 2
+text = "Key Binds"
+
+[node name="video_button" type="Button" parent="button_container" unique_id=201589893]
+layout_mode = 2
+text = "Video Options"
+
+[node name="audio_button" type="Button" parent="button_container" unique_id=832689305]
+layout_mode = 2
+text = "Audio Options"
+
+[node name="back_button" type="Button" parent="button_container" unique_id=543748487]
+layout_mode = 2
+text = "Back"
+
+[node name="page_container" type="Control" parent="." unique_id=817737319]
+anchors_preset = 0
+
+[node name="Audio_page" type="CanvasLayer" parent="page_container" unique_id=222687172]
+visible = false
+
+[node name="Audio_Title" type="Label" parent="page_container/Audio_page" unique_id=272743428]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.0
+offset_top = 100.0
+offset_right = 172.0
+offset_bottom = 169.0
+grow_horizontal = 2
+text = "Audio Options"
+label_settings = SubResource("LabelSettings_h4533")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="slider_container" type="VBoxContainer" parent="page_container/Audio_page" unique_id=1703311274]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -150.0
+offset_right = -250.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="master_volume" type="HSlider" parent="page_container/Audio_page/slider_container" unique_id=364541585]
+layout_mode = 2
+
+[node name="music_volume" type="HSlider" parent="page_container/Audio_page/slider_container" unique_id=1048479638]
+layout_mode = 2
+
+[node name="ambience_volume" type="HSlider" parent="page_container/Audio_page/slider_container" unique_id=1866989050]
+layout_mode = 2
+
+[node name="sfx_volume" type="HSlider" parent="page_container/Audio_page/slider_container" unique_id=178747240]
+layout_mode = 2
+
+[node name="text_container" type="VBoxContainer" parent="page_container/Audio_page" unique_id=477803600]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 250.0
+offset_top = -52.0
+offset_right = 550.0
+offset_bottom = 52.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="page_container/Audio_page/text_container" unique_id=1784072412]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="page_container/Audio_page/text_container" unique_id=724187191]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="page_container/Audio_page/text_container" unique_id=271852654]
+layout_mode = 2
+text = "Ambience Volume"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="page_container/Audio_page/text_container" unique_id=1667922512]
+layout_mode = 2
+text = "SFX volume"
+horizontal_alignment = 1
+
+[node name="Video_page" type="CanvasLayer" parent="page_container" unique_id=6555727]
+visible = false
+
+[node name="Video_Title" type="Label" parent="page_container/Video_page" unique_id=1397988776]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -170.0
+offset_top = 100.0
+offset_right = 170.0
+offset_bottom = 169.0
+grow_horizontal = 2
+text = "Video Options"
+label_settings = SubResource("LabelSettings_npixg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="interactable_container" type="VBoxContainer" parent="page_container/Video_page" unique_id=46083420]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = -150.0
+offset_right = -250.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 2
+alignment = 1
+
+[node name="brightness_slider" type="HSlider" parent="page_container/Video_page/interactable_container" unique_id=1474728459]
+layout_mode = 2
+
+[node name="V-sync_button" type="CheckButton" parent="page_container/Video_page/interactable_container" unique_id=13579940]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="text_container" type="VBoxContainer" parent="page_container/Video_page" unique_id=948951937]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 250.0
+offset_top = -150.0
+offset_right = 550.0
+offset_bottom = 150.0
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="page_container/Video_page/text_container" unique_id=1192849804]
+layout_mode = 2
+text = "Brightness"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="page_container/Video_page/text_container" unique_id=571260873]
+layout_mode = 2
+text = "V-Sync"
+horizontal_alignment = 1
+
+[node name="reset_button" type="Button" parent="page_container/Video_page" unique_id=490123064]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -67.5
+offset_top = -131.0
+offset_right = 67.5
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Reset To Default"
+
+[node name="Key_binds_page" type="CanvasLayer" parent="page_container" unique_id=319438598]
+visible = false
+
+[node name="Key_Title" type="Label" parent="page_container/Key_binds_page" unique_id=1969541769]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -117.0
+offset_top = 100.0
+offset_right = 117.0
+offset_bottom = 169.0
+grow_horizontal = 2
+text = "Key Binds"
+label_settings = SubResource("LabelSettings_ofg22")
+
+[connection signal="pressed" from="button_container/key_binds_button" to="." method="_on_key_binds_button_pressed"]
+[connection signal="pressed" from="button_container/video_button" to="." method="_on_video_button_pressed"]
+[connection signal="pressed" from="button_container/audio_button" to="." method="_on_audio_button_pressed"]
+[connection signal="pressed" from="button_container/back_button" to="." method="_on_back_button_pressed"]
