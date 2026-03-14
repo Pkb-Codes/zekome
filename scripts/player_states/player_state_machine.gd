@@ -8,15 +8,15 @@ func _ready():
 		states[child.name] = child
 		child.state_machine = self
 		child.player = get_parent()
-
+	
 	change_state("IdleState")
 
 func change_state(state_name: String):
 	if current_state:
 		current_state.exit()
-
+	
 	current_state = states.get(state_name)
-
+	
 	if current_state:
 		current_state.enter()
 

@@ -2,15 +2,14 @@ extends "res://scripts/player_states/player_state.gd"
 
 func enter():
 	player.velocity = Vector2.ZERO
-	
 
 func physics_update(delta):
 	var direction = get_input_direction()
-
+	
 	if direction != Vector2.ZERO:
 		state_machine.change_state("MoveState")
 		return
-
+	
 	if Input.is_action_just_pressed("Dash") and player.can_dash and direction !=Vector2.ZERO:
 		state_machine.change_state("DashState")
 

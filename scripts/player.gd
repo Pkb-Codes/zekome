@@ -5,15 +5,19 @@ var health : int
 
 func _ready():
 	health=max_health
-	
+
+# health logic
 func take_damage(amount:int):
 	health-=amount
 	health=max(health,0)
+
+
 func die():
-	pass
+	print("player died")
 
 
 
+# dash logic
 @export var dash_cooldown := 10.0
 
 var can_dash := true
@@ -22,8 +26,4 @@ var dash_direction := Vector2.ZERO
 func start_dash_cooldown():
 	can_dash=false
 	await get_tree().create_timer(dash_cooldown).timeout
-	can_dash=true	
-	
-	
-	
-	
+	can_dash=true

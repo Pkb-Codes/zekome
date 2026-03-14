@@ -7,11 +7,12 @@
 [ext_resource type="Script" uid="uid://c02q0vckyxnwh" path="res://scripts/player_states/player_dash_state.gd" id="5_y4r1p"]
 [ext_resource type="Texture2D" uid="uid://bfwe834v0dt4n" path="res://sprites/icon.svg" id="6_d2wvv"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0gboa"]
-radius = 133.15028
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
+size = Vector2(128, 129)
 
 [node name="player" type="CharacterBody2D" unique_id=56953062]
 script = ExtResource("1_tuyoq")
+dash_cooldown = 1.0
 
 [node name="State_machine" type="Node" parent="." unique_id=134278161]
 script = ExtResource("2_fjrip")
@@ -26,11 +27,10 @@ script = ExtResource("4_ur7pv")
 script = ExtResource("5_y4r1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1486660533]
-position = Vector2(0, 15)
-shape = SubResource("CircleShape2D_0gboa")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_tuyoq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=8501458]
-position = Vector2(7, 15)
 texture = ExtResource("6_d2wvv")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2091360280]
