@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://c5nbj6bfjnpxr"]
 
 [ext_resource type="Script" uid="uid://cmd2oxaslhca2" path="res://scripts/options_menu.gd" id="1_npixg"]
+[ext_resource type="Script" uid="uid://smbkig1u31ee" path="res://scripts/audio_page.gd" id="2_hblyp"]
+[ext_resource type="Script" uid="uid://c8ei2gsheaivb" path="res://scripts/video_page.gd" id="3_bcnpr"]
+[ext_resource type="Script" uid="uid://cm5v4w5l44prv" path="res://scripts/key_binds_page.gd" id="4_yfe3d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_h4533"]
 font_size = 50
@@ -29,6 +32,7 @@ grow_vertical = 2
 color = Color(0.19506672, 0.19506672, 0.19506669, 1)
 
 [node name="button_container" type="VBoxContainer" parent="." unique_id=518626224]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -63,7 +67,7 @@ text = "Back"
 anchors_preset = 0
 
 [node name="Audio_page" type="CanvasLayer" parent="page_container" unique_id=222687172]
-visible = false
+script = ExtResource("2_hblyp")
 
 [node name="Audio_Title" type="Label" parent="page_container/Audio_page" unique_id=272743428]
 anchors_preset = 5
@@ -135,8 +139,23 @@ layout_mode = 2
 text = "SFX volume"
 horizontal_alignment = 1
 
+[node name="back_button" type="Button" parent="page_container/Audio_page" unique_id=1365924971]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.0
+offset_top = -198.0
+offset_right = 50.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
 [node name="Video_page" type="CanvasLayer" parent="page_container" unique_id=6555727]
 visible = false
+script = ExtResource("3_bcnpr")
 
 [node name="Video_Title" type="Label" parent="page_container/Video_page" unique_id=1397988776]
 anchors_preset = 5
@@ -210,6 +229,7 @@ text = "Reset To Default"
 
 [node name="Key_binds_page" type="CanvasLayer" parent="page_container" unique_id=319438598]
 visible = false
+script = ExtResource("4_yfe3d")
 
 [node name="Key_Title" type="Label" parent="page_container/Key_binds_page" unique_id=1969541769]
 anchors_preset = 5
@@ -227,3 +247,4 @@ label_settings = SubResource("LabelSettings_ofg22")
 [connection signal="pressed" from="button_container/video_button" to="." method="_on_video_button_pressed"]
 [connection signal="pressed" from="button_container/audio_button" to="." method="_on_audio_button_pressed"]
 [connection signal="pressed" from="button_container/back_button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="page_container/Audio_page/back_button" to="page_container/Audio_page" method="_on_back_button_pressed"]
