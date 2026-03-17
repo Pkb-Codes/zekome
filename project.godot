@@ -16,7 +16,7 @@ config/icon="res://sprites/icon.svg"
 
 [autoload]
 
-GlobalInventory="*uid://bw5ue8g0vsv0p"
+Global="*uid://bw5ue8g0vsv0p"
 
 [input]
 
