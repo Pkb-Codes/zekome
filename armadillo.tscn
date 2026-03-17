@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://co4tj0a5kgmfu"]
+
+[ext_resource type="Script" uid="uid://dt11306w47sky" path="res://armadillo.gd" id="1_6ki17"]
+
+[node name="Armadillo" type="CharacterBody2D" unique_id=635133144]
+script = ExtResource("1_6ki17")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1766131307]
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1251621020]
+target_position = Vector2(150, 50)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=74695885]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2090736055]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1198287514]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
