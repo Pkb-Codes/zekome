@@ -1,11 +1,14 @@
 [gd_scene format=3 uid="uid://co4tj0a5kgmfu"]
 
 [ext_resource type="Script" uid="uid://dt11306w47sky" path="res://armadillo.gd" id="1_6ki17"]
+[ext_resource type="Texture2D" uid="uid://bfwe834v0dt4n" path="res://sprites/icon.svg" id="2_bp0wu"]
 
 [node name="Armadillo" type="CharacterBody2D" unique_id=635133144]
 script = ExtResource("1_6ki17")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1766131307]
+texture = ExtResource("2_bp0wu")
+offset = Vector2(400, 300)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1251621020]
 target_position = Vector2(150, 50)

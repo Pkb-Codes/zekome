@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum State { IDLE, PATROL, ATTACK }
+enum State { IDLE, PATROL, CHASE }
 
 var state = State.IDLE
 
@@ -15,7 +15,6 @@ var start_position: Vector2
 var patrol_target: Vector2
 
 var idle_timer = 0.0
-var attack_direction = Vector2.ZERO
 
 
 func _ready():
@@ -32,8 +31,8 @@ func _physics_process(delta):
 		State.PATROL:
 			patrol_state()
 
-		State.ATTACK:
-			attack_state()
+		State.CHASE:
+			chase_state()
 
 	# Flip sprite based on movement
 	if velocity.x != 0:
@@ -41,13 +40,16 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+
+# ------------------ STATES ------------------
+
 func idle_state(delta):
 
 	velocity = Vector2.ZERO
 	idle_timer += delta
 
 	if player_detected:
-		state = State.ATTACK
+		state = State.CHASE
 		idle_timer = 0
 		return
 
@@ -66,31 +68,31 @@ func patrol_state():
 		state = State.IDLE
 
 	if player_detected:
-		state = State.ATTACK
+		state = State.CHASE
 
 
-func attack_state():
+func chase_state():
 
 	if player == null:
 		state = State.IDLE
-		attack_direction = Vector2.ZERO
 		return
 
-	if attack_direction == Vector2.ZERO:
-		attack_direction = (player.global_position - global_position).normalized()
+	var distance = global_position.distance_to(player.global_position)
 
-	velocity = attack_direction * speed * 1.4
+	# Stop jittering when very close
+	if distance > 5:
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * speed * 1.2
+	else:
+		velocity = Vector2.ZERO
 
-	if is_on_wall():
-		state = State.IDLE
-		attack_direction = Vector2.ZERO
-
+	# Lose player → go back to patrol
 	if not player_detected:
 		choose_new_patrol_point()
 		state = State.PATROL
-		attack_direction = Vector2.ZERO
 
 
+# ------------------ HELPERS ------------------
 
 func choose_new_patrol_point():
 
@@ -100,6 +102,7 @@ func choose_new_patrol_point():
 	)
 
 	patrol_target = start_position + offset
+
 
 
 
