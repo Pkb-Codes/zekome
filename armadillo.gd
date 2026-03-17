@@ -41,7 +41,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-# ------------------ STATES ------------------
+
 
 func idle_state(delta):
 
@@ -92,7 +92,7 @@ func chase_state():
 		state = State.PATROL
 
 
-# ------------------ HELPERS ------------------
+
 
 func choose_new_patrol_point():
 
