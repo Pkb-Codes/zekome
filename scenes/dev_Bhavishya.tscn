@@ -35,10 +35,10 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wolf" unique_id=771316341]
 shape = SubResource("CapsuleShape2D_mlt7u")
 
-[node name="Area2D" type="Area2D" parent="wolf" unique_id=1822363687]
+[node name="playerDetection" type="Area2D" parent="wolf" unique_id=1822363687]
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf/Area2D" unique_id=1109869516]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf/playerDetection" unique_id=1109869516]
 scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_v25rj")
 
@@ -54,5 +54,5 @@ shape = SubResource("CapsuleShape2D_jl53w")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=101100912]
 
-[connection signal="body_entered" from="wolf/Area2D" to="wolf" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="wolf/Area2D" to="wolf" method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="wolf/playerDetection" to="wolf" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="wolf/playerDetection" to="wolf" method="_on_area_2d_body_exited"]

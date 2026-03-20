@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dqe2g58xr7fek"]
+
+[ext_resource type="Script" uid="uid://dv8rrlbqud5jf" path="res://scripts/state.gd" id="1_jsxd1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wvoo0"]
+size = Vector2(20, 20)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77ind"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_73j1g"]
+
+[node name="Wolf" type="Node2D" unique_id=1646330700]
+
+[node name="wolf" type="CharacterBody2D" parent="." unique_id=534107131]
+collision_layer = 2
+script = ExtResource("1_jsxd1")
+
+[node name="Sprite2D" type="Sprite2D" parent="wolf" unique_id=732764765]
+texture = SubResource("PlaceholderTexture2D_wvoo0")
+
+[node name="debug" type="Label" parent="wolf" unique_id=1312733849]
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 15.0
+offset_bottom = -17.0
+text = "IDLE"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf" unique_id=1853251869]
+shape = SubResource("CapsuleShape2D_77ind")
+
+[node name="playerDetection" type="Area2D" parent="wolf" unique_id=1991507557]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf/playerDetection" unique_id=1622894038]
+scale = Vector2(10, 10)
+shape = SubResource("CircleShape2D_73j1g")
+
+[connection signal="body_entered" from="wolf/playerDetection" to="wolf" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="wolf/playerDetection" to="wolf" method="_on_area_2d_body_exited"]
