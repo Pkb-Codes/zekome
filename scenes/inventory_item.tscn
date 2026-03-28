@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://uqeqkjjvbgd7"]
 
-[ext_resource type="Script" uid="uid://dyc3u0yvnitlh" path="res://scripts/inventory_item.gd" id="1_u4rwp"]
+[ext_resource type="Script" uid="uid://dyc3u0yvnitlh" path="res://scripts/inventory_scripts/inventory_item.gd" id="1_u4rwp"]
 [ext_resource type="Texture2D" uid="uid://c66xlpye6qnmi" path="res://sprites/blue_circle.png" id="2_letey"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6ep5w"]

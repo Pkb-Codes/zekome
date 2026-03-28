@@ -7,6 +7,9 @@ var inventory_size = 10
 # custom signal
 signal inventory_updated
 
+#inventory slot reference
+@onready var inventory_slot_scene = preload("res://scenes/inventory_Slot.tscn")
+
 # will add player reference if actually needed
 #var player_node: Node = null
 

@@ -1,26 +1,30 @@
-extends Control
+extends CanvasLayer
 @onready var inventory_ui = $"."
-@onready var grid_container = $Inventory_UI/GridContainer
+@onready var grid_container = $ColorRect/Inventory_UI/GridContainer
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Global.inventory_updated.connect(_on_inventory_updated)
+	Global_Inventory.inventory_updated.connect(_on_inventory_updated)
 	_on_inventory_updated()
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 func _input(event):
 	if event.is_action_pressed("ui_inventory"):
 		inventory_ui.visible = ! inventory_ui.visible
+		#pause game if needed..............
 		#get_tree().paused = !get_tree().paused
 
 #Update Inventory UI
 func _on_inventory_updated():
 	clear_grid_container()
+	#add slots in the inventory grid
+	for item in Global_Inventory.inventory:
+		var slot = Global_Inventory.inventory_slot_scene.instantiate()
+		grid_container.add_child(slot)
+		if item != null:
+			slot.set_item(item)
+		else:
+			slot.set_empty()
 
 #Clear Inventory UI grid	
 func clear_grid_container():

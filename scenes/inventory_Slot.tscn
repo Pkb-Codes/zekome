@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://573g23ap3vqh"]
 
-[ext_resource type="Script" uid="uid://kqjh26dxbv03" path="res://scripts/inventory_slot.gd" id="1_x3u48"]
+[ext_resource type="Script" uid="uid://kqjh26dxbv03" path="res://scripts/inventory_scripts/inventory_slot.gd" id="1_x3u48"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3u48"]
 
@@ -142,7 +142,7 @@ offset_bottom = 34.0
 grow_vertical = 2
 columns = 3
 
-[node name="Button" type="Button" parent="EquipSelectPanel/GridContainer" unique_id=808671407]
+[node name="Button1" type="Button" parent="EquipSelectPanel/GridContainer" unique_id=808671407]
 layout_mode = 2
 text = "1"
 
@@ -171,7 +171,7 @@ text = "6"
 [connection signal="pressed" from="ItemButton" to="." method="_on_item_button_pressed"]
 [connection signal="pressed" from="UsagePanel/EquipButton" to="." method="_on_equip_button_pressed"]
 [connection signal="pressed" from="UsagePanel/DropButton" to="." method="_on_drop_button_pressed"]
-[connection signal="pressed" from="EquipSelectPanel/GridContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EquipSelectPanel/GridContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="EquipSelectPanel/GridContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="EquipSelectPanel/GridContainer/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="EquipSelectPanel/GridContainer/Button4" to="." method="_on_button_4_pressed"]

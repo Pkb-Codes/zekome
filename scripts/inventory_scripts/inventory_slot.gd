@@ -1,0 +1,70 @@
+extends Control
+
+#scene tree references
+@onready var usage_panel = $UsagePanel
+@onready var details_panel = $DetailsPanel
+@onready var equip_panel = $EquipSelectPanel
+
+@onready var icon = $InnerBorder/ItemIcon
+@onready var quantity_label = $InnerBorder/ItemQuantity
+
+@onready var item_name_label = $DetailsPanel/ItemName
+@onready var item_type_label = $DetailsPanel/ItemType
+
+#slot item
+var item = null
+
+#mouse interaction functions
+func _on_item_button_pressed() -> void:
+	#if item != null:
+		usage_panel.visible = !usage_panel.visible
+		equip_panel.visible = false
+
+func _on_item_button_mouse_entered() -> void:
+	#if item != null:
+		usage_panel.visible = false
+		equip_panel.visible = false
+		details_panel.visible = true
+
+func _on_item_button_mouse_exited() -> void:
+	details_panel.visible = false
+
+func _on_equip_button_pressed() -> void:
+	equip_panel.visible = true
+	usage_panel.visible = false
+
+func _on_drop_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+#equip buttons interaction
+func _on_button_1_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_2_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_3_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_4_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_5_pressed() -> void:
+	pass # Replace with function body.
+
+func _on_button_6_pressed() -> void:
+	pass # Replace with function body.
+
+
+#instantiating functions
+func set_empty():
+	icon.texture = null
+	quantity_label.text = ""
+
+func set_item(new_item):
+	item = new_item
+	icon.texture = new_item["texture"]
+	quantity_label.text = str(new_item["quantity"])
+	item_name_label.text = str(new_item["name"])
+	item_type_label.text = str(new_item["type"])

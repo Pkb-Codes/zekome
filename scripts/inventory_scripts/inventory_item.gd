@@ -1,5 +1,6 @@
 extends Node2D
 
+#item specifications
 @export var item_type = ""
 @export var item_name = ""
 @export var item_texture: Texture
@@ -25,7 +26,7 @@ func pickup_item():
 		"texture" : item_texture,
 		"scene_path" : scene_path
 	}
-	GlobalInventory.add_item(item)
+	Global_Inventory.add_item(item)
 	self.queue_free()
 
 
