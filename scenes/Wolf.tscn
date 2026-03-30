@@ -2,23 +2,24 @@
 
 [ext_resource type="Script" uid="uid://dv8rrlbqud5jf" path="res://scripts/state.gd" id="1_jsxd1"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_wvoo0"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_jsxd1"]
 size = Vector2(20, 20)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77ind"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wvoo0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_73j1g"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_77ind"]
 
 [node name="Wolf" type="Node2D" unique_id=1646330700]
 
-[node name="wolf" type="CharacterBody2D" parent="." unique_id=534107131]
+[node name="wolf" type="CharacterBody2D" parent="." unique_id=478985760]
 collision_layer = 2
 script = ExtResource("1_jsxd1")
+dash_duration = 0.4
 
-[node name="Sprite2D" type="Sprite2D" parent="wolf" unique_id=732764765]
-texture = SubResource("PlaceholderTexture2D_wvoo0")
+[node name="Sprite2D" type="Sprite2D" parent="wolf" unique_id=1284494524]
+texture = SubResource("PlaceholderTexture2D_jsxd1")
 
-[node name="debug" type="Label" parent="wolf" unique_id=1312733849]
+[node name="debug" type="Label" parent="wolf" unique_id=1790585218]
 offset_left = -20.0
 offset_top = -40.0
 offset_right = 15.0
@@ -27,15 +28,15 @@ text = "IDLE"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf" unique_id=1853251869]
-shape = SubResource("CapsuleShape2D_77ind")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf" unique_id=1984090201]
+shape = SubResource("CapsuleShape2D_wvoo0")
 
-[node name="playerDetection" type="Area2D" parent="wolf" unique_id=1991507557]
+[node name="playerDetection" type="Area2D" parent="wolf" unique_id=1529585965]
 collision_mask = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf/playerDetection" unique_id=1622894038]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf/playerDetection" unique_id=356330703]
 scale = Vector2(10, 10)
-shape = SubResource("CircleShape2D_73j1g")
+shape = SubResource("CircleShape2D_77ind")
 
 [connection signal="body_entered" from="wolf/playerDetection" to="wolf" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="wolf/playerDetection" to="wolf" method="_on_area_2d_body_exited"]

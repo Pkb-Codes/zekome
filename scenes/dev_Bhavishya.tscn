@@ -19,6 +19,7 @@ size = Vector2(10, 10)
 [node name="wolf" type="CharacterBody2D" parent="." unique_id=49764838]
 collision_layer = 2
 script = ExtResource("1_mlt7u")
+dash_duration = 0.4
 
 [node name="Sprite2D" type="Sprite2D" parent="wolf" unique_id=28858709]
 texture = SubResource("PlaceholderTexture2D_yab6o")
