@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-enum State { IDLE, PATROL, ATTACK }
+enum State { IDLE, PATROL, ATTACK, REPOSITION }
 
 var state = State.IDLE
 
@@ -41,6 +41,9 @@ func _physics_process(delta):
 
 		State.ATTACK:
 			attack_state(delta)
+		
+		State.REPOSITION:
+			reposition_state()
 
 	debug.text = State.keys()[state]
 	move_and_slide()
@@ -101,20 +104,39 @@ func reset_attack():
 	dash_timer = 0
 
 	cooldown_timer = attack_cooldown
+	
+	choose_new_reposition_target()
+	state = State.REPOSITION
 
-	reposition()
-	state = State.PATROL
-
-func reposition():
+func reposition_state():
 
 	if player == null:
-		choose_new_patrol_point()
+		state = State.IDLE
 		return
 
-	var away_direction = (global_position - player.global_position).normalized()
+	var direction = (patrol_target - global_position).normalized()
+	velocity = direction * speed
 
-	patrol_target = global_position + away_direction * patrol_radius * 0.5
+	if(global_position.distance_to(patrol_target) < 10):
+		state = State.ATTACK
+	
+func choose_new_reposition_target():
+	var player_detection_radius = 100 #player_detection_radius = scale of playerDetection node * 100
+	var offset_distance = randf_range(50, player_detection_radius)
+	var offset_angle = set_reposition_angle()
+	
+	var offset = offset_distance*Vector2(cos(offset_angle),sin(offset_angle))
+	patrol_target = player.global_position + offset
+	
+func set_reposition_angle():
+	# Direction from player to enemy
+	var base_direction = (global_position - player.global_position).normalized()
+	var base_angle = base_direction.angle()
 
+	# Limit angle variation (prevents crossing through player)
+	var angle_offset = randf_range(-PI/2, PI/2)
+	return base_angle + angle_offset
+	
 func choose_new_patrol_point():
 
 	var offset = Vector2(
