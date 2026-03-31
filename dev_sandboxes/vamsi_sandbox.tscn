@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dq3un2uisfnne"]
+
+[ext_resource type="PackedScene" uid="uid://begq6fhebah0v" path="res://scenes/player.tscn" id="1_2732x"]
+
+[node name="vamsi_sandbox" type="Node" unique_id=1252370120]
+
+[node name="player" parent="." unique_id=56953062 instance=ExtResource("1_2732x")]
+position = Vector2(-5, -4)

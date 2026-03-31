@@ -1,3 +1,18 @@
 [gd_scene format=3 uid="uid://bbfnkw7ocdjeq"]
 
+[ext_resource type="PackedScene" uid="uid://begq6fhebah0v" path="res://scenes/player.tscn" id="1_0wfyh"]
+[ext_resource type="Texture2D" uid="uid://bfwe834v0dt4n" path="res://sprites/icon.svg" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://co4tj0a5kgmfu" path="res://scenes/armadillo.tscn" id="2_sugp2"]
+
 [node name="Main" type="Node" unique_id=833138372]
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1892422530]
+position = Vector2(765, 358)
+scale = Vector2(23.265625, 19.976563)
+texture = ExtResource("1_sugp2")
+
+[node name="player" parent="." unique_id=56953062 instance=ExtResource("1_0wfyh")]
+position = Vector2(191, 191)
+
+[node name="Armadillo" parent="." unique_id=635133144 instance=ExtResource("2_sugp2")]
+position = Vector2(596, 179)

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bs1loxd7you3w"]
+
+[ext_resource type="PackedScene" uid="uid://co4tj0a5kgmfu" path="res://scenes/armadillo.tscn" id="1_ym704"]
+
+[node name="DevAmbar" type="Node2D" unique_id=524944391]
+
+[node name="Armadillo" parent="." unique_id=635133144 instance=ExtResource("1_ym704")]
