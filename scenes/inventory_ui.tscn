@@ -6,6 +6,7 @@
 
 [node name="Inventory_UI" type="CanvasLayer" unique_id=1900014633]
 process_mode = 3
+visible = false
 script = ExtResource("1_tahbm")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=775560368]

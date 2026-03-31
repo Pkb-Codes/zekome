@@ -4,6 +4,10 @@ extends Node
 var inventory = []
 var inventory_size = 10
 
+#hotbar items
+var hotbar = []
+var hotbar_size = 6
+
 # custom signal
 signal inventory_updated
 
@@ -16,7 +20,9 @@ signal inventory_updated
 func _ready():
 	# this will fix the inventory size to inventory_size
 	inventory.resize(inventory_size)
+	hotbar.resize(hotbar_size)
 
+#inventory items management functions
 func add_item(item):
 	for i in range(inventory_size):
 		if inventory[i] != null and inventory[i]["name"] == item["name"] and inventory[i]["type"] == item["type"]:
@@ -29,8 +35,23 @@ func add_item(item):
 			return true
 		return false
 
-func remove_item():
+func remove_item(item):
+	for i in range(inventory_size):
+		if inventory[i] != null and inventory[i]["name"] == item["name"] and inventory[i]["typr"] == item["type"]:
+			inventory[i]["quantity"] -= 1
 	inventory_updated.emit()
+
+#hotbar items management functions
+func add_item_hotbar(item):
+	for i in range(hotbar_size):
+		if hotbar[i] == null:
+			hotbar[i] = item
+			inventory_updated.emit()
+			return true
+		return false
+
+func remove_item_hotbar(item):
+	pass
 
 #func set_player_reference(player):
 	# have to set player reference from player script to make it work
