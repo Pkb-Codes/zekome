@@ -18,5 +18,13 @@ shape = SubResource("CircleShape2D_6ep5w")
 scale = Vector2(0.16, 0.16)
 texture = ExtResource("2_letey")
 
+[node name="ui_interact" type="Label" parent="." unique_id=1952379821]
+visible = false
+offset_left = -28.0
+offset_top = -37.0
+offset_right = 28.0
+offset_bottom = -14.0
+text = "Pick up"
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

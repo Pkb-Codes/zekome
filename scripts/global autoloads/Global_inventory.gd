@@ -14,8 +14,6 @@ signal inventory_updated
 #inventory slot reference
 @onready var inventory_slot_scene = preload("res://scenes/inventory_Slot.tscn")
 
-# will add player reference if actually needed
-#var player_node: Node = null
 
 func _ready():
 	# this will fix the inventory size to inventory_size
@@ -26,33 +24,34 @@ func _ready():
 func add_item(item):
 	for i in range(inventory_size):
 		if inventory[i] != null and inventory[i]["name"] == item["name"] and inventory[i]["type"] == item["type"]:
-			inventory[i]["quantity"] += item["qunatity"]
+			inventory[i]["quantity"] += item["quantity"]
 			inventory_updated.emit()
 			return true
 		elif inventory[i] == null:
 			inventory[i] = item
 			inventory_updated.emit()
 			return true
-		return false
+	return false
 
 func remove_item(item):
 	for i in range(inventory_size):
-		if inventory[i] != null and inventory[i]["name"] == item["name"] and inventory[i]["typr"] == item["type"]:
+		if inventory[i] != null and inventory[i]["name"] == item["name"] and inventory[i]["type"] == item["type"]:
 			inventory[i]["quantity"] -= 1
+			if inventory[i]["quantity"] <= 0:
+				inventory[i] = null
 	inventory_updated.emit()
 
 #hotbar items management functions
-func add_item_hotbar(item):
-	for i in range(hotbar_size):
-		if hotbar[i] == null:
-			hotbar[i] = item
-			inventory_updated.emit()
-			return true
+func add_item_hotbar(item, slot):
+	if hotbar[slot] == null:
+		hotbar[slot] = item
+		inventory_updated.emit()
+		return true
+	else:
+		#switch item in hotbar slot with this item
 		return false
+	return false
 
 func remove_item_hotbar(item):
+	#add this item back to inventory
 	pass
-
-#func set_player_reference(player):
-	# have to set player reference from player script to make it work
-	#player_node = player

@@ -6,9 +6,9 @@ extends Node2D
 @export var item_texture: Texture
 
 var scene_path: String = "res://scripts/inventory_item.gd"
-
 var player_in_range = false
 
+@onready var ui_interact = $ui_interact
 @onready var icon_sprite = $Sprite2D
 
 func _ready() -> void:
@@ -33,10 +33,10 @@ func pickup_item():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "player":
 		player_in_range = true
-		body.ui_interact.visible = true
+		ui_interact.visible = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		player_in_range = false
-		body.ui_interact.visible = false
+		ui_interact.visible = false

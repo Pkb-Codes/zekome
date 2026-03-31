@@ -16,12 +16,12 @@ var item = null
 
 #mouse interaction functions
 func _on_item_button_pressed() -> void:
-	#if item != null:
+	if item != null:
 		usage_panel.visible = !usage_panel.visible
 		equip_panel.visible = false
 
 func _on_item_button_mouse_entered() -> void:
-	#if item != null:
+	if item != null:
 		usage_panel.visible = false
 		equip_panel.visible = false
 		details_panel.visible = true
@@ -34,7 +34,10 @@ func _on_equip_button_pressed() -> void:
 	usage_panel.visible = false
 
 func _on_drop_button_pressed() -> void:
-	pass # Replace with function body.
+	usage_panel.visible = false
+	equip_panel.visible = false
+	details_panel.visible = false
+	Global_Inventory.remove_item(item)
 
 
 #equip buttons interaction

@@ -1,23 +1,32 @@
 [gd_scene format=3 uid="uid://2esxhopx8pvj"]
 
-[ext_resource type="Texture2D" uid="uid://bfwe834v0dt4n" path="res://sprites/icon.svg" id="1_n6apj"]
 [ext_resource type="PackedScene" uid="uid://uqeqkjjvbgd7" path="res://scenes/inventory_item.tscn" id="2_rfv72"]
 [ext_resource type="Texture2D" uid="uid://cbqrgslqef3so" path="res://sprites/red_circle.png" id="3_crpsv"]
+[ext_resource type="Texture2D" uid="uid://c66xlpye6qnmi" path="res://sprites/blue_circle.png" id="3_rfv72"]
 [ext_resource type="PackedScene" uid="uid://d4drpj2q5b4j0" path="res://scenes/inventory_ui.tscn" id="4_j4r4q"]
+[ext_resource type="PackedScene" uid="uid://begq6fhebah0v" path="res://scenes/player.tscn" id="4_n6apj"]
 
 [node name="Dev_Bhargav" type="Node" unique_id=137256716]
 
-[node name="player" type="Node2D" parent="." unique_id=279445806]
-position = Vector2(140, 111)
-
-[node name="Sprite2D" type="Sprite2D" parent="player" unique_id=1501260537]
-texture = ExtResource("1_n6apj")
-
 [node name="inventory_item" parent="." unique_id=1025020928 instance=ExtResource("2_rfv72")]
 position = Vector2(219, 126)
-scale = Vector2(3.000629, 3.148923)
 item_type = "col"
 item_name = "red"
 item_texture = ExtResource("3_crpsv")
+
+[node name="inventory_item2" parent="." unique_id=1344473700 instance=ExtResource("2_rfv72")]
+position = Vector2(588, 29.999992)
+item_type = "col"
+item_name = "red"
+item_texture = ExtResource("3_crpsv")
+
+[node name="inventory_item3" parent="." unique_id=210813330 instance=ExtResource("2_rfv72")]
+position = Vector2(708, 371)
+item_type = "col"
+item_name = "blue"
+item_texture = ExtResource("3_rfv72")
+
+[node name="player" parent="." unique_id=56953062 instance=ExtResource("4_n6apj")]
+position = Vector2(471, 224)
 
 [node name="Inventory_UI" parent="." unique_id=1900014633 instance=ExtResource("4_j4r4q")]
