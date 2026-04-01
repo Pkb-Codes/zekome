@@ -9,7 +9,7 @@ var state = State.IDLE
 # Movement and patrol settings
 @export var speed = 120
 @export var patrol_radius = 200
-@export var player_detection_radius = 100 # Should match detection area scale
+@export var player_detection_radius = 200 # Should match detection area scale
 # Debug label to display current state
 @onready var debug: Label = $debug
 

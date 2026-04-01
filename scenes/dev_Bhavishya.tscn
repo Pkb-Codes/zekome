@@ -1,13 +1,6 @@
 [gd_scene format=3 uid="uid://bgpdbh7x1l3eg"]
 
-[ext_resource type="Script" uid="uid://dv8rrlbqud5jf" path="res://scripts/state.gd" id="1_mlt7u"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yab6o"]
-size = Vector2(20, 20)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mlt7u"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_v25rj"]
+[ext_resource type="PackedScene" uid="uid://dqe2g58xr7fek" path="res://scenes/wolf.tscn" id="1_mlt7u"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_v25rj"]
 size = Vector2(10, 10)
@@ -16,35 +9,10 @@ size = Vector2(10, 10)
 
 [node name="DevBhavishya" type="Node2D" unique_id=1889251947]
 
-[node name="wolf" type="CharacterBody2D" parent="." unique_id=49764838]
-collision_layer = 2
-script = ExtResource("1_mlt7u")
-dash_duration = 0.4
-
-[node name="Sprite2D" type="Sprite2D" parent="wolf" unique_id=28858709]
-texture = SubResource("PlaceholderTexture2D_yab6o")
-
-[node name="debug" type="Label" parent="wolf" unique_id=1298027836]
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 15.0
-offset_bottom = -17.0
-text = "IDLE"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf" unique_id=771316341]
-shape = SubResource("CapsuleShape2D_mlt7u")
-
-[node name="playerDetection" type="Area2D" parent="wolf" unique_id=1822363687]
-collision_mask = 5
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wolf/playerDetection" unique_id=1109869516]
-scale = Vector2(10, 10)
-shape = SubResource("CircleShape2D_v25rj")
+[node name="wolf" parent="." unique_id=191618256 instance=ExtResource("1_mlt7u")]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=895898006 groups=["player"]]
-position = Vector2(88.975, 4)
+position = Vector2(119.575, 4)
 collision_layer = 4
 
 [node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1769820827]
@@ -54,6 +22,3 @@ texture = SubResource("PlaceholderTexture2D_v25rj")
 shape = SubResource("CapsuleShape2D_jl53w")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=101100912]
-
-[connection signal="body_entered" from="wolf/playerDetection" to="wolf" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="wolf/playerDetection" to="wolf" method="_on_area_2d_body_exited"]
