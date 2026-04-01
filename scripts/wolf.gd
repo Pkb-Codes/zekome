@@ -65,6 +65,17 @@ func _physics_process(delta):
 	# Apply movement
 	move_and_slide()
 
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	# Detect player entering area
+	if body.is_in_group("player"):
+		player = body
+		player_detected = true
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	# Detect player leaving area
+	if body == player:
+		player_detected = false
+		
 func idle_state():
 
 	# Stop movement
@@ -184,14 +195,3 @@ func choose_new_patrol_point():
 	)
 
 	patrol_target = start_position + offset
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	# Detect player entering area
-	if body.is_in_group("player"):
-		player = body
-		player_detected = true
-
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	# Detect player leaving area
-	if body == player:
-		player_detected = false
