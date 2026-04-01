@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bgpdbh7x1l3eg"]
 
-[ext_resource type="PackedScene" uid="uid://dqe2g58xr7fek" path="res://scenes/wolf.tscn" id="1_mlt7u"]
+[ext_resource type="PackedScene" uid="uid://dqe2g58xr7fek" path="res://scenes/Wolf.tscn" id="1_mlt7u"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_v25rj"]
 size = Vector2(10, 10)
