@@ -1,4 +1,5 @@
 extends CanvasLayer
+
 @onready var inventory_ui = $"."
 @onready var grid_container = $ColorRect/Inventory_UI/GridContainer
 

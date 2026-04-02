@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dis5mvgbi7020"]
+
+[ext_resource type="Script" uid="uid://dplcpvher4xvh" path="res://scripts/player_hud.gd" id="1_mlvnn"]
+
+[node name="Player_HUD" type="CanvasLayer" unique_id=1192228224]
+script = ExtResource("1_mlvnn")
+
+[node name="hotbar" type="Control" parent="." unique_id=301994670]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="hotbar" unique_id=1048476096]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 694.0
+grow_vertical = 0
+columns = 6

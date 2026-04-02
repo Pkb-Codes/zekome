@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c66xlpye6qnmi" path="res://sprites/blue_circle.png" id="3_rfv72"]
 [ext_resource type="PackedScene" uid="uid://d4drpj2q5b4j0" path="res://scenes/inventory_ui.tscn" id="4_j4r4q"]
 [ext_resource type="PackedScene" uid="uid://begq6fhebah0v" path="res://scenes/player.tscn" id="4_n6apj"]
+[ext_resource type="PackedScene" uid="uid://dis5mvgbi7020" path="res://scenes/player_hud.tscn" id="6_tb7c8"]
 
 [node name="Dev_Bhargav" type="Node" unique_id=137256716]
 
@@ -30,3 +31,5 @@ item_texture = ExtResource("3_rfv72")
 position = Vector2(471, 224)
 
 [node name="Inventory_UI" parent="." unique_id=1900014633 instance=ExtResource("4_j4r4q")]
+
+[node name="Player_HUD" parent="." unique_id=1192228224 instance=ExtResource("6_tb7c8")]

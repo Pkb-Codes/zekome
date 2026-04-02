@@ -14,7 +14,7 @@ var player_in_range = false
 func _ready() -> void:
 	icon_sprite.texture = item_texture
 
-func _process(delta: float):
+func _process(_delta: float):
 	if player_in_range and Input.is_action_just_pressed("inventory_add"):
 		pickup_item()
 

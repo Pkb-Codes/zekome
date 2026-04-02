@@ -3,7 +3,7 @@ extends "res://scripts/player_states/player_state.gd"
 func enter():
 	player.velocity = Vector2.ZERO
 
-func physics_update(delta):
+func physics_update(_delta):
 	var direction = get_input_direction()
 	
 	if direction != Vector2.ZERO:

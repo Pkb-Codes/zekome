@@ -42,22 +42,28 @@ func _on_drop_button_pressed() -> void:
 
 #equip buttons interaction
 func _on_button_1_pressed() -> void:
-	pass # Replace with function body.
+	if item != null:
+		Global_Inventory.add_item_hotbar(item, 0)
 
 func _on_button_2_pressed() -> void:
-	pass # Replace with function body.
+	if item != null:
+		Global_Inventory.add_item_hotbar(item, 1)
 
 func _on_button_3_pressed() -> void:
-	pass # Replace with function body.
+	if item != null:
+		Global_Inventory.add_item_hotbar(item, 2)
 
 func _on_button_4_pressed() -> void:
-	pass # Replace with function body.
+	if item != null:
+		Global_Inventory.add_item_hotbar(item, 3)
 
 func _on_button_5_pressed() -> void:
-	pass # Replace with function body.
+	if item != null:
+		Global_Inventory.add_item_hotbar(item, 4)
 
 func _on_button_6_pressed() -> void:
-	pass # Replace with function body.
+	if item != null:
+		Global_Inventory.add_item_hotbar(item, 5)
 
 
 #instantiating functions
