@@ -2,12 +2,16 @@ extends CanvasLayer
 
 @onready var inventory_ui = $"."
 @onready var grid_container = $ColorRect/Inventory_UI/GridContainer
+@onready var slot_wheel = $ColorRect/slot_wheel_background/slots_wheel
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global_Inventory.inventory_updated.connect(_on_inventory_updated)
 	_on_inventory_updated()
+	Global_Inventory.hotbar_updated.connect(_update_slot_wheel)
+	_update_slot_wheel()
+	
 
 func _input(event):
 	if event.is_action_pressed("ui_inventory"):
@@ -33,5 +37,13 @@ func clear_grid_container():
 		var child =grid_container.get_child(0)
 		grid_container.remove_child(child)
 		child.queue_free()
-	
-	
+
+#update the slot wheel
+func _update_slot_wheel():
+	for i in range(Global_Inventory.hotbar_size):
+		var slot = slot_wheel.get_child(i)
+		var item = Global_Inventory.hotbar[i]
+		if item != null:
+			slot.set_item(item)
+		else:
+			slot.set_empty()

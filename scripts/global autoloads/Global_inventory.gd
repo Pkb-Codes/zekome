@@ -2,7 +2,7 @@ extends Node
 
 # inventory items
 var inventory = []
-var inventory_size = 10
+var inventory_size = 12
 
 #hotbar items
 var hotbar = []
@@ -45,15 +45,16 @@ func remove_item(item):
 
 #hotbar items management functions
 func add_item_hotbar(item, slot):
+	var new_item = item.duplicate(true)
 	if hotbar[slot] == null:
-		hotbar[slot] = item
+		hotbar[slot] = new_item
 		hotbar_updated.emit()
 		remove_item(item)
 	else:
-		#add_item(hotbar[slot])
-		#hotbar[slot] = item
-		#hotbar_updated.emit()
-		pass
+		remove_item(item)
+		add_item(hotbar[slot])
+		hotbar[slot] = new_item
+		hotbar_updated.emit()
 
 func remove_item_hotbar(item):
 	#add this item back to inventory and remove it from hotbar
