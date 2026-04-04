@@ -5,7 +5,7 @@ extends "res://scripts/player_states/player_state.gd"
 func enter():
 	pass
 
-func physics_update(delta):
+func physics_update(_delta):
 	var direction = get_input_direction()
 	if direction == Vector2.ZERO:
 		state_machine.change_state("IdleState")

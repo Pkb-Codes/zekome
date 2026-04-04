@@ -10,7 +10,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(128, 129)
 
-[node name="player" type="CharacterBody2D" unique_id=56953062]
+[node name="player" type="CharacterBody2D" unique_id=56953062 groups=["player"]]
 script = ExtResource("1_tuyoq")
 dash_cooldown = 1.0
 
