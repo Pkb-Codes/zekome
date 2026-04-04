@@ -10,10 +10,16 @@ func _ready():
 func take_damage(amount:int):
 	health-=amount
 	health=max(health,0)
+	
+	#print player health for debugging
+	print(health)
 
 
 func die():
 	print("player died")
+	
+	#reset player health to 100 again for playtesting and debugging
+	health=max_health
 
 
 
