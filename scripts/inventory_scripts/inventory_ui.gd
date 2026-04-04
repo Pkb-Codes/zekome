@@ -16,6 +16,7 @@ func _ready() -> void:
 func _input(event):
 	if event.is_action_pressed("ui_inventory"):
 		inventory_ui.visible = ! inventory_ui.visible
+		Global_Inventory.inventory_open = inventory_ui.visible
 		#pause game if needed..............
 		#get_tree().paused = !get_tree().paused
 

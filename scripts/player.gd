@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+#custom signal
+signal player_health_changed (current_health, max)
+
 @export var max_health:int =100
 var health : int
 
@@ -10,10 +13,16 @@ func _ready():
 func take_damage(amount:int):
 	health-=amount
 	health=max(health,0)
+	if health <= 0:
+		die()
+	emit_signal("player_health_changed", health, max_health)
 
 
 func die():
 	print("player died")
+	
+	#make player health to full for debugging and testing process
+	health = max_health
 
 
 

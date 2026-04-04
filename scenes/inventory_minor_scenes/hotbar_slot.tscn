@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://b35aw0ryhfl6r"]
+
+[ext_resource type="Script" uid="uid://culs4mfwv7283" path="res://scripts/inventory_scripts/hotbar_slot.gd" id="1_6vth8"]
+[ext_resource type="Texture2D" uid="uid://c66xlpye6qnmi" path="res://sprites/blue_circle.png" id="2_5yw0c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ga6ek"]
+font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6vth8"]
+
+[node name="hotbar_slot" type="Control" unique_id=1302021667]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 50.0
+offset_bottom = 50.0
+pivot_offset = Vector2(25, 25)
+script = ExtResource("1_6vth8")
+
+[node name="OuterBorder" type="ColorRect" parent="." unique_id=1381295378]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.05882353, 0.48235294, 1)
+
+[node name="InnerBorder" type="ColorRect" parent="." unique_id=1585150284]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.0
+offset_top = -22.0
+offset_right = 22.0
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6431373, 0.827451, 0.96862745, 1)
+
+[node name="slot_key" type="Label" parent="InnerBorder" unique_id=1365354855]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -4.0
+offset_top = -39.0
+offset_right = 23.0
+offset_bottom = 6.0
+grow_horizontal = 0
+text = "Q"
+label_settings = SubResource("LabelSettings_ga6ek")
+horizontal_alignment = 1
+
+[node name="ItemIcon" type="Sprite2D" parent="InnerBorder" unique_id=699292499]
+scale = Vector2(0.32, 0.32)
+texture = ExtResource("2_5yw0c")
+centered = false
+offset = Vector2(20, 20)
+
+[node name="icon_button" type="Button" parent="InnerBorder" unique_id=1622303746]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6vth8")
+
+[node name="unequip_panel" type="ColorRect" parent="." unique_id=578670661]
+visible = false
+layout_mode = 1
+offset_top = 53.0
+offset_right = 100.0
+offset_bottom = 93.0
+color = Color(0, 0.05882353, 0.48235294, 1)
+
+[node name="unequip_button" type="Button" parent="unequip_panel" unique_id=1298733677]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -15.5
+offset_right = 40.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "UNEQUIP"
+
+[connection signal="mouse_entered" from="InnerBorder/icon_button" to="." method="_on_icon_button_mouse_entered"]
+[connection signal="mouse_exited" from="InnerBorder/icon_button" to="." method="_on_icon_button_mouse_exited"]
+[connection signal="pressed" from="unequip_panel/unequip_button" to="." method="_on_unequip_button_pressed"]

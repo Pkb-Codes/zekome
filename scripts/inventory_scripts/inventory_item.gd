@@ -5,7 +5,7 @@ extends Node2D
 @export var item_name = ""
 @export var item_texture: Texture
 
-var scene_path: String = "res://scripts/inventory_item.gd"
+var scene_path: String = "res://scenes/inventory_minor_scenes/inventory_item.tscn"
 var player_in_range = false
 
 @onready var ui_interact = $ui_interact
@@ -40,3 +40,8 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "player":
 		player_in_range = false
 		ui_interact.visible = false
+
+func set_item_data(data):
+	item_type = data["type"]
+	item_texture = data["texture"]
+	item_name = data["name"]

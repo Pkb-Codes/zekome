@@ -38,6 +38,7 @@ func _on_drop_button_pressed() -> void:
 	equip_panel.visible = false
 	details_panel.visible = false
 	Global_Inventory.remove_item(item)
+	Global_Inventory.drop_item(item)
 
 
 #equip buttons interaction
