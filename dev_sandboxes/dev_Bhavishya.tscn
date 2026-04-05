@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dqe2g58xr7fek" path="res://scenes/Wolf.tscn" id="1_mlt7u"]
 [ext_resource type="PackedScene" uid="uid://begq6fhebah0v" path="res://scenes/player.tscn" id="2_ji6t0"]
+[ext_resource type="PackedScene" uid="uid://dis5mvgbi7020" path="res://scenes/player_hud.tscn" id="3_hi1cn"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_v25rj"]
 size = Vector2(10, 10)
@@ -29,3 +30,7 @@ visible = false
 position = Vector2(195, 3)
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
+
+[node name="Player_HUD" parent="." unique_id=1192228224 instance=ExtResource("3_hi1cn")]
+offset = Vector2(0, -308.655)
+transform = Transform2D(1, 0, 0, 1, 0, -308.655)
