@@ -11,6 +11,7 @@
 size = Vector2(128, 129)
 
 [node name="player" type="CharacterBody2D" unique_id=56953062 groups=["player"]]
+collision_layer = 4
 script = ExtResource("1_tuyoq")
 dash_cooldown = 1.0
 
