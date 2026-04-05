@@ -4,33 +4,13 @@
 [ext_resource type="PackedScene" uid="uid://begq6fhebah0v" path="res://scenes/player.tscn" id="2_ji6t0"]
 [ext_resource type="PackedScene" uid="uid://dis5mvgbi7020" path="res://scenes/player_hud.tscn" id="3_hi1cn"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_v25rj"]
-size = Vector2(10, 10)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jl53w"]
-
 [node name="DevBhavishya" type="Node2D" unique_id=1889251947]
 
 [node name="wolf" parent="." unique_id=191618256 instance=ExtResource("1_mlt7u")]
 
-[node name="Player_Test" type="CharacterBody2D" parent="." unique_id=895898006 groups=["player"]]
-position = Vector2(821, 8)
-collision_layer = 4
-
-[node name="Sprite2D" type="Sprite2D" parent="Player_Test" unique_id=1769820827]
-texture = SubResource("PlaceholderTexture2D_v25rj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player_Test" unique_id=1914719009]
-shape = SubResource("CapsuleShape2D_jl53w")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=101100912]
-visible = false
-
 [node name="player" parent="." unique_id=56953062 instance=ExtResource("2_ji6t0")]
-position = Vector2(195, 3)
+position = Vector2(532, 278)
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
 
 [node name="Player_HUD" parent="." unique_id=1192228224 instance=ExtResource("3_hi1cn")]
-offset = Vector2(0, -308.655)
-transform = Transform2D(1, 0, 0, 1, 0, -308.655)
