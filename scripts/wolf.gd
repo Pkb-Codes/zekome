@@ -70,12 +70,21 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		player = body
 		player_detected = true
+		#print("player detected")
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	# Detect player leaving area
 	if body == player:
 		player_detected = false
+		#print("player exited")
 		
+func _on_hitbox_body_entered(body: Node2D) -> void:
+	#damage player
+	if body.is_in_group('player'):
+		if body.has_method('take_damage'):
+			body.take_damage(10)
+			print("-10HP")	
+	
 func idle_state():
 
 	# Stop movement
