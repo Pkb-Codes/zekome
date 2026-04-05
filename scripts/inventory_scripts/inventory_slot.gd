@@ -1,7 +1,7 @@
 extends Control
 
 #scene tree references
-@onready var usage_panel = $UsagePanel
+@onready var drop_panel = $drop_Panel
 @onready var details_panel = $DetailsPanel
 @onready var equip_panel = $EquipSelectPanel
 
@@ -17,24 +17,26 @@ var item = null
 #mouse interaction functions
 func _on_item_button_pressed() -> void:
 	if item != null:
-		usage_panel.visible = !usage_panel.visible
-		equip_panel.visible = false
+		details_panel.visible = false
+		drop_panel.visible = true
+		if item["type"] == "weapon":
+			equip_panel.visible = true
 
 func _on_item_button_mouse_entered() -> void:
 	if item != null:
-		usage_panel.visible = false
+		drop_panel.visible = false
 		equip_panel.visible = false
 		details_panel.visible = true
 
 func _on_item_button_mouse_exited() -> void:
 	details_panel.visible = false
-
-func _on_equip_button_pressed() -> void:
-	equip_panel.visible = true
-	usage_panel.visible = false
+	if drop_panel.visible == true:
+		await get_tree().create_timer(1).timeout
+		equip_panel.visible = false
+		drop_panel.visible = false
 
 func _on_drop_button_pressed() -> void:
-	usage_panel.visible = false
+	drop_panel.visible = false
 	equip_panel.visible = false
 	details_panel.visible = false
 	Global_Inventory.remove_item(item)

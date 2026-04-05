@@ -116,50 +116,15 @@ grow_vertical = 0
 text = "TYPE"
 horizontal_alignment = 1
 
-[node name="UsagePanel" type="ColorRect" parent="." unique_id=380038232]
+[node name="drop_Panel" type="ColorRect" parent="." unique_id=380038232]
 visible = false
 layout_mode = 0
-offset_top = -133.0
+offset_top = -56.0
 offset_right = 240.0
 offset_bottom = -3.0
 color = Color(0, 0.05882353, 0.48235294, 1)
 
-[node name="EquipButton" type="Button" parent="UsagePanel" unique_id=2143811958]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -115.0
-offset_top = 10.0
-offset_right = 115.0
-offset_bottom = 53.0
-grow_horizontal = 2
-text = "EQUIP"
-
-[node name="DropButton" type="Button" parent="UsagePanel" unique_id=1855740493]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -115.0
-offset_top = -59.0
-offset_right = 115.0
-offset_bottom = -16.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "DROP"
-
-[node name="EquipSelectPanel" type="ColorRect" parent="." unique_id=208709455]
-visible = false
-layout_mode = 0
-offset_top = -104.0
-offset_right = 240.0
-offset_bottom = -4.0
-color = Color(0, 0.05882353, 0.48235294, 1)
-
-[node name="GridContainer" type="GridContainer" parent="EquipSelectPanel" unique_id=572806268]
+[node name="DropButton" type="Button" parent="drop_Panel" unique_id=1855740493]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -167,50 +132,82 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -115.0
-offset_top = -40.0
+offset_top = -21.5
 offset_right = 115.0
-offset_bottom = 40.0
+offset_bottom = 21.5
 grow_horizontal = 2
 grow_vertical = 2
+text = "DROP"
+
+[node name="EquipSelectPanel" type="ColorRect" parent="." unique_id=208709455]
+visible = false
+layout_mode = 0
+offset_top = -160.0
+offset_right = 240.0
+offset_bottom = -60.0
+color = Color(0, 0.05882353, 0.48235294, 1)
+
+[node name="equip_label" type="Label" parent="EquipSelectPanel" unique_id=1657256186]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 41.0
+grow_horizontal = 2
+text = "Equip In Slot:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="EquipSelectPanel" unique_id=572806268]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = -60.0
+offset_right = 115.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 10
 columns = 6
 
 [node name="Button1" type="Button" parent="EquipSelectPanel/GridContainer" unique_id=808671407]
-custom_minimum_size = Vector2(30, 80)
+custom_minimum_size = Vector2(30, 50)
 layout_mode = 2
 text = "1"
 
 [node name="Button2" type="Button" parent="EquipSelectPanel/GridContainer" unique_id=572643939]
-custom_minimum_size = Vector2(30, 80)
+custom_minimum_size = Vector2(30, 50)
 layout_mode = 2
 text = "2"
 
 [node name="Button3" type="Button" parent="EquipSelectPanel/GridContainer" unique_id=504566486]
-custom_minimum_size = Vector2(30, 80)
+custom_minimum_size = Vector2(30, 50)
 layout_mode = 2
 text = "3"
 
 [node name="Button4" type="Button" parent="EquipSelectPanel/GridContainer" unique_id=246962829]
-custom_minimum_size = Vector2(30, 80)
+custom_minimum_size = Vector2(30, 50)
 layout_mode = 2
 text = "4"
 
 [node name="Button5" type="Button" parent="EquipSelectPanel/GridContainer" unique_id=1001560876]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(30, 50)
 layout_mode = 2
 text = "5"
 
 [node name="Button6" type="Button" parent="EquipSelectPanel/GridContainer" unique_id=1577758532]
-custom_minimum_size = Vector2(30, 0)
+custom_minimum_size = Vector2(30, 50)
 layout_mode = 2
 text = "6"
 
 [connection signal="mouse_entered" from="ItemButton" to="." method="_on_item_button_mouse_entered"]
 [connection signal="mouse_exited" from="ItemButton" to="." method="_on_item_button_mouse_exited"]
 [connection signal="pressed" from="ItemButton" to="." method="_on_item_button_pressed"]
-[connection signal="pressed" from="UsagePanel/EquipButton" to="." method="_on_equip_button_pressed"]
-[connection signal="pressed" from="UsagePanel/DropButton" to="." method="_on_drop_button_pressed"]
+[connection signal="pressed" from="drop_Panel/DropButton" to="." method="_on_drop_button_pressed"]
 [connection signal="pressed" from="EquipSelectPanel/GridContainer/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="EquipSelectPanel/GridContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="EquipSelectPanel/GridContainer/Button3" to="." method="_on_button_3_pressed"]

@@ -1,9 +1,18 @@
 extends Node2D
 
-#item specifications
+#item properties
+@export_group("item properties")
 @export var item_type = ""
 @export var item_name = ""
 @export var item_texture: Texture
+
+# special properties, change only if weapon
+@export_group("weapon properties")
+@export var attack_damage = 10
+@export var attack_speed = 0.5  #attack cooldown
+@export var attack_animation = ""  #anim name
+@export var attack_type = "melee"  #or ranged
+
 
 var scene_path: String = "res://scenes/inventory_minor_scenes/inventory_item.tscn"
 var player_in_range = false
